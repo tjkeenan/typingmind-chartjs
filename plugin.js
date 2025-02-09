@@ -1,0 +1,56 @@
+window.typingmindPlugin = {
+  name: 'ChartJS',
+  version: '1.0.0',
+  description: 'Generate charts using Chart.js library',
+  author: 'Roo',
+  command: '/chart',
+
+  async onCommand(args) {
+    let chartConfig;
+    try {
+      chartConfig = JSON.parse(args);
+    } catch (e) {
+      return document.createTextNode('Error: Invalid JSON configuration');
+    }
+
+    // Create container
+    const container = document.createElement('div');
+    container.style.width = '100%';
+    container.style.maxWidth = '600px';
+    container.style.margin = '20px 0';
+
+    // Create canvas
+    const canvas = document.createElement('canvas');
+    container.appendChild(canvas);
+
+    try {
+      const ctx = canvas.getContext('2d');
+      new Chart(ctx, chartConfig);
+      return container;
+    } catch (e) {
+      return document.createTextNode('Error: Invalid Chart.js configuration');
+    }
+  },
+
+  getHelpText() {
+    return `ChartJS Plugin - Generate charts using Chart.js
+
+Usage: /chart {chartConfig}
+
+Example:
+/chart {
+  "type": "bar",
+  "data": {
+    "labels": ["January", "February", "March"],
+    "datasets": [{
+      "label": "Sales",
+      "data": [65, 59, 80],
+      "backgroundColor": ["#FF6384", "#36A2EB", "#FFCE56"]
+    }]
+  }
+}
+
+Supported chart types: bar, line, pie, doughnut, radar, polar, bubble, scatter
+For more examples, visit: https://www.chartjs.org/docs/latest/samples/`;
+  }
+};

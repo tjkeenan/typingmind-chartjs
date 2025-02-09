@@ -1,66 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Chart.js Plugin for TypingMind</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        .chart-container {
-            width: 100%;
-            max-width: 600px;
-            margin: 20px 0;
-        }
-    </style>
+  <meta charset="utf-8">
+  <title>ChartJS Plugin for TypingMind</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <script>
+  <div id="container"></div>
+  <script>
     window.typingmindPlugin = {
-        name: 'Chart.js Plugin',
-        version: '1.0.0',
-        description: 'Create charts using Chart.js in TypingMind',
-        // Command that triggers the plugin
-        command: '/chart',
-        
-        async onCommand(args) {
-            try {
-                const data = JSON.parse(args);
-                const chartContainer = document.createElement('div');
-                chartContainer.className = 'chart-container';
-                const canvas = document.createElement('canvas');
-                chartContainer.appendChild(canvas);
-                
-                const ctx = canvas.getContext('2d');
-                new Chart(ctx, data);
-                
-                return chartContainer;
-            } catch (error) {
-                return document.createTextNode('Error: Invalid chart data. Please provide valid Chart.js configuration.');
-            }
-        },
-        
-        getHelpText() {
-            return `
-Create charts using Chart.js. Usage:
-/chart {chartConfig}
+      name: 'ChartJS',
+      version: '1.0.0',
+      description: 'Generate charts using Chart.js library',
+      author: 'Roo',
+      command: '/chart',
+
+      async onCommand(args) {
+        let chartConfig;
+        try {
+          chartConfig = JSON.parse(args);
+        } catch (e) {
+          return document.createTextNode('Error: Invalid JSON configuration');
+        }
+
+        // Create container
+        const container = document.createElement('div');
+        container.style.width = '100%';
+        container.style.maxWidth = '600px';
+        container.style.margin = '20px 0';
+
+        // Create canvas
+        const canvas = document.createElement('canvas');
+        container.appendChild(canvas);
+
+        try {
+          const ctx = canvas.getContext('2d');
+          new Chart(ctx, chartConfig);
+          return container;
+        } catch (e) {
+          return document.createTextNode('Error: Invalid Chart.js configuration');
+        }
+      },
+
+      getHelpText() {
+        return `ChartJS Plugin - Generate charts using Chart.js
+
+Usage: /chart {chartConfig}
 
 Example:
 /chart {
-    "type": "bar",
-    "data": {
-        "labels": ["Red", "Blue", "Yellow"],
-        "datasets": [{
-            "label": "My First Dataset",
-            "data": [300, 50, 100],
-            "backgroundColor": [
-                "rgb(255, 99, 132)",
-                "rgb(54, 162, 235)",
-                "rgb(255, 205, 86)"
-            ]
-        }]
-    }
+  "type": "bar",
+  "data": {
+    "labels": ["January", "February", "March"],
+    "datasets": [{
+      "label": "Sales",
+      "data": [65, 59, 80],
+      "backgroundColor": ["#FF6384", "#36A2EB", "#FFCE56"]
+    }]
+  }
 }
-`;
-        }
+
+Supported chart types: bar, line, pie, doughnut, radar, polar, bubble, scatter
+For more examples, visit: https://www.chartjs.org/docs/latest/samples/`;
+      }
     };
-    </script>
+  </script>
 </body>
 </html>
