@@ -1,8 +1,14 @@
 {
-  "name": "ChartJS Plugin",
-  "version": "1.0.0",
+  "name": "ChartJS",
   "description": "Generate charts using Chart.js library",
+  "version": "1.0.0",
   "author": "Roo",
-  "command": "/chart",
-  "helpText": "ChartJS Plugin - Generate charts using Chart.js\n\nUsage: /chart {chartConfig}\n\nExample:\n/chart {\n  \"type\": \"bar\",\n  \"data\": {\n    \"labels\": [\"January\", \"February\", \"March\"],\n    \"datasets\": [{\n      \"label\": \"Sales\",\n      \"data\": [65, 59, 80],\n      \"backgroundColor\": [\"#FF6384\", \"#36A2EB\", \"#FFCE56\"]\n    }]\n  }\n}\n\nSupported chart types: bar, line, pie, doughnut, radar, polar, bubble, scatter\nFor more examples, visit: https://www.chartjs.org/docs/latest/samples/"
+  "manifestVersion": 1,
+  "command": {
+    "name": "/chart",
+    "description": "Create a chart using Chart.js",
+    "examples": [
+      "/chart { \"type\": \"bar\", \"data\": { \"labels\": [\"A\", \"B\", \"C\"], \"datasets\": [{ \"label\": \"Data\", \"data\": [1, 2, 3] }] } }"
+    ]
+  }
 }

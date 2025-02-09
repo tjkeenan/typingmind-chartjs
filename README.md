@@ -2,23 +2,18 @@
 
 Create beautiful charts in TypingMind using Chart.js library.
 
-## Files
-
-- `plugin.json` - Plugin metadata and configuration
-- `implementation.js` - Plugin implementation with Chart.js integration
-
 ## Installation
 
-1. Add the plugin to TypingMind:
+1. In TypingMind:
    - Go to Settings > Plugins
-   - Add plugin URL: `https://raw.githubusercontent.com/tjkeenan/typingmind-chartjs/main`
+   - Enter the following URL: `https://raw.githubusercontent.com/tjkeenan/typingmind-chartjs/main`
    - Click Save
 
 ## Usage
 
-Use the `/chart` command followed by a valid Chart.js configuration in JSON format.
+The plugin adds a `/chart` command that accepts Chart.js configurations in JSON format.
 
-### Examples
+### Example Charts
 
 1. Bar Chart:
 ```
@@ -80,4 +75,13 @@ Use the `/chart` command followed by a valid Chart.js configuration in JSON form
 - Bubble
 - Scatter
 
-For more chart examples and configuration options, visit [Chart.js documentation](https://www.chartjs.org/docs/latest/samples/).
+For more examples and configuration options, visit [Chart.js documentation](https://www.chartjs.org/docs/latest/samples/).
+
+## Files
+
+- `plugin.json` - Plugin metadata and configuration
+- `implementation.js` - Plugin implementation with Chart.js integration
+
+## Development
+
+This plugin follows the TypingMind plugin architecture as described in their [documentation](https://docs.typingmind.com/plugins/build-a-typingmind-plugin). It uses Chart.js for rendering charts and follows proper error handling practices.
