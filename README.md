@@ -2,11 +2,17 @@
 
 Create beautiful charts in TypingMind using Chart.js library.
 
+## Files
+
+- `plugin.json` - Plugin metadata and configuration
+- `implementation.js` - Plugin implementation with Chart.js integration
+
 ## Installation
 
-1. Host these files on a web server or use GitHub Pages
-2. In TypingMind, go to Settings > Plugins
-3. Add plugin URL (e.g., `https://yourdomain.com/path/to/index.html` or `https://username.github.io/repo-name/index.html`)
+1. Add the plugin to TypingMind:
+   - Go to Settings > Plugins
+   - Add plugin URL: `https://raw.githubusercontent.com/tjkeenan/typingmind-chartjs/main`
+   - Click Save
 
 ## Usage
 
