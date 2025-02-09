@@ -1,23 +1,31 @@
 # ChartJS Plugin for TypingMind
 
-Create beautiful charts in TypingMind using Chart.js library.
+A TypingMind plugin that allows you to create beautiful charts using Chart.js library.
+
+## Structure
+
+This plugin follows the TypingMind plugin architecture:
+- `plugin.json` - Plugin manifest and configuration
+- `implementation.js` - Client-side implementation
+- `openapi.yaml` - API specification
 
 ## Installation
 
-1. In TypingMind:
+1. Make sure all files are pushed to your GitHub repository
+2. In TypingMind:
    - Go to Settings > Plugins
-   - Enter the following URL: `https://raw.githubusercontent.com/tjkeenan/typingmind-chartjs/main`
+   - Add plugin URL: `https://raw.githubusercontent.com/tjkeenan/typingmind-chartjs/main/plugin.json`
    - Click Save
 
 ## Usage
 
-The plugin adds a `/chart` command that accepts Chart.js configurations in JSON format.
+After installation, you can create charts by providing Chart.js configurations. The plugin will automatically convert your configuration into a visual chart.
 
-### Example Charts
+### Examples
 
 1. Bar Chart:
-```
-/chart {
+```json
+{
   "type": "bar",
   "data": {
     "labels": ["January", "February", "March"],
@@ -31,8 +39,8 @@ The plugin adds a `/chart` command that accepts Chart.js configurations in JSON 
 ```
 
 2. Line Chart:
-```
-/chart {
+```json
+{
   "type": "line",
   "data": {
     "labels": ["Mon", "Tue", "Wed", "Thu", "Fri"],
@@ -47,8 +55,8 @@ The plugin adds a `/chart` command that accepts Chart.js configurations in JSON 
 ```
 
 3. Pie Chart:
-```
-/chart {
+```json
+{
   "type": "pie",
   "data": {
     "labels": ["Red", "Blue", "Yellow"],
@@ -75,13 +83,13 @@ The plugin adds a `/chart` command that accepts Chart.js configurations in JSON 
 - Bubble
 - Scatter
 
-For more examples and configuration options, visit [Chart.js documentation](https://www.chartjs.org/docs/latest/samples/).
-
-## Files
-
-- `plugin.json` - Plugin metadata and configuration
-- `implementation.js` - Plugin implementation with Chart.js integration
+For more configuration examples, visit [Chart.js documentation](https://www.chartjs.org/docs/latest/samples/).
 
 ## Development
 
-This plugin follows the TypingMind plugin architecture as described in their [documentation](https://docs.typingmind.com/plugins/build-a-typingmind-plugin). It uses Chart.js for rendering charts and follows proper error handling practices.
+This plugin is built using:
+- Chart.js for chart rendering
+- OpenAPI 3.0 for API specification
+- TypingMind plugin architecture
+
+For more information about building TypingMind plugins, see the [official documentation](https://docs.typingmind.com/plugins/build-a-typingmind-plugin).

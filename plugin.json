@@ -1,14 +1,17 @@
 {
-  "name": "ChartJS",
-  "description": "Generate charts using Chart.js library",
-  "version": "1.0.0",
-  "author": "Roo",
-  "manifestVersion": 1,
-  "command": {
-    "name": "/chart",
-    "description": "Create a chart using Chart.js",
-    "examples": [
-      "/chart { \"type\": \"bar\", \"data\": { \"labels\": [\"A\", \"B\", \"C\"], \"datasets\": [{ \"label\": \"Data\", \"data\": [1, 2, 3] }] } }"
-    ]
-  }
+  "schema_version": "v1",
+  "name_for_human": "ChartJS Plugin",
+  "name_for_model": "chartjs",
+  "description_for_human": "Create beautiful charts using Chart.js library",
+  "description_for_model": "Use this plugin to generate various types of charts (bar, line, pie, etc.) using Chart.js. Input should be Chart.js configuration in JSON format.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://raw.githubusercontent.com/tjkeenan/typingmind-chartjs/main/openapi.yaml"
+  },
+  "logo_url": "",
+  "contact_email": "",
+  "legal_info_url": ""
 }

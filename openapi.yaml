@@ -1,0 +1,46 @@
+openapi: 3.0.0
+info:
+  title: ChartJS Plugin API
+  description: API for creating charts using Chart.js
+  version: 1.0.0
+servers:
+  - url: https://api.example.com/v1
+paths:
+  /createChart:
+    post:
+      operationId: createChart
+      summary: Create a chart using Chart.js configuration
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - chartConfig
+              properties:
+                chartConfig:
+                  type: object
+                  description: Chart.js configuration object
+                  example:
+                    type: "bar"
+                    data:
+                      labels: ["January", "February", "March"]
+                      datasets:
+                        - label: "Sales"
+                          data: [65, 59, 80]
+                          backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"]
+      responses:
+        '200':
+          description: Chart created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  type:
+                    type: string
+                    enum: [display, error]
+                  content:
+                    type: object
+                    description: The chart display element or error message
